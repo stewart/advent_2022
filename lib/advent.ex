@@ -14,7 +14,7 @@ defmodule Advent do
       import Enum, warn: false, except: [split: 2]
       import List, only: [to_tuple: 1]
       import Integer, only: [mod: 2]
-      import String, warn: false
+      import String, warn: false, except: [to_charlist: 1]
     end
   end
 
