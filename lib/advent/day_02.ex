@@ -1,6 +1,6 @@
 defmodule Advent.Day02 do
   use Advent
-  input_file "advent/day02.dat"
+  input_file("advent/day_02.dat")
 
   @impl Advent
   def perform do

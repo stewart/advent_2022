@@ -1,13 +1,13 @@
 defmodule Advent.Day01 do
   use Advent
-  input_file "advent/day01.dat"
+  input_file("advent/day_01.dat")
 
   @impl Advent
   def perform do
-    calories = input()
+    data = input()
 
-    IO.inspect(part_one(calories), label: :part_one)
-    IO.inspect(part_two(calories), label: :part_two)
+    IO.inspect(part_one(data), label: :part_one)
+    IO.inspect(part_two(data), label: :part_two)
   end
 
   @impl Advent

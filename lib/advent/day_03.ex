@@ -1,6 +1,6 @@
 defmodule Advent.Day03 do
   use Advent
-  input_file "advent/day03.dat"
+  input_file("advent/day_03.dat")
 
   @impl Advent
   def perform do
@@ -25,8 +25,8 @@ defmodule Advent.Day03 do
 
     find_shared_items = fn compartments ->
       compartments
-      |> map(&MapSet.new/1)
-      |> reduce(&MapSet.intersection/2)
+      |> map(&set/1)
+      |> reduce(&intersection/2)
     end
 
     to_priority = fn
@@ -43,11 +43,11 @@ defmodule Advent.Day03 do
 
   def part_two(data) do
     into_rucksacks = fn string ->
-      string |> to_charlist() |> MapSet.new()
+      string |> to_charlist() |> set()
     end
 
     find_badges = fn rucksacks ->
-      reduce(rucksacks, &MapSet.intersection/2)
+      reduce(rucksacks, &intersection/2)
     end
 
     to_priority = fn
