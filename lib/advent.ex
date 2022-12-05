@@ -13,9 +13,9 @@ defmodule Advent do
       import Bitwise
       import Enum, except: [split: 2]
       import Integer, only: [digits: 2, gcd: 2, mod: 2, pow: 2]
-      import List, only: [to_tuple: 1]
-      import MapSet
-      import String, except: [to_charlist: 1]
+      import List, only: [to_tuple: 1, last: 1]
+      import MapSet, except: [filter: 2, reject: 2]
+      import String, except: [to_charlist: 1, last: 1]
 
       import Advent
     end
