@@ -17,25 +17,19 @@ defmodule Advent.Day06 do
     |> to_charlist()
   end
 
-  def part_one(data) do
-    start_of_packet? = fn {buffer, offset} ->
-      if buffer == uniq(buffer), do: offset
-    end
-
-    data
-    |> chunk_every(4, 1)
-    |> with_index(4)
-    |> find_value(start_of_packet?)
+  def part_one(datastream) do
+    find_unique_sequence_offset(datastream, _packet = 4)
   end
 
-  def part_two(data) do
-    start_of_message? = fn {buffer, offset} ->
-      if buffer == uniq(buffer), do: offset
-    end
+  def part_two(datastream) do
+    find_unique_sequence_offset(datastream, _message = 14)
+  end
 
-    data
-    |> chunk_every(14, 1)
-    |> with_index(14)
-    |> find_value(start_of_message?)
+  def find_unique_sequence_offset(datastream, count)
+      when is_list(datastream) and is_integer(count) do
+    datastream
+    |> chunk_every(count, 1)
+    |> with_index(count)
+    |> find_value(fn {buffer, offset} -> if buffer == uniq(buffer), do: offset end)
   end
 end
